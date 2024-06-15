@@ -41,7 +41,7 @@ void setup () {
     // example 2: ping and capture intermentidate results by overloading onReceive function
     Serial.println ();
     class capture_ping : public esp32_ping {
-        void onReceive () {
+        void onReceive (int bytes) {
             if (elapsed_time ())
                 Serial.printf ("Reply from %s: bytes = %i time = %.3fms\n", target ().toString().c_str(), size (), elapsed_time ());
             else
